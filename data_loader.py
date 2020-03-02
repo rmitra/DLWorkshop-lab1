@@ -16,7 +16,7 @@ from time import time
 from common.utils import deterministic_random
 
 
-class H36M(data.Dataset):
+class PoseDataset(data.Dataset):
     def __init__(self, opt, split='train'):
 
         print('Creating {} data loader\n'.format(split))
