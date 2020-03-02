@@ -1,6 +1,5 @@
 import numpy as np
 
-from common.arguments import parse_args
 import torch
 import torch.utils.data as data
 import torch.nn as nn
@@ -10,11 +9,6 @@ import os
 import sys
 import errno
 import pickle
-
-from common.camera import *
-from time import time
-from common.utils import deterministic_random
-
 
 class PoseDataset(data.Dataset):
     def __init__(self, opt, split='train'):
