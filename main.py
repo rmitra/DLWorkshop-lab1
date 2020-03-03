@@ -72,13 +72,15 @@ class PoseModel(nn.Module):
         # First block
         res_1 = x
         x = self.drop(self.relu(self.b1_bn1(self.b1_l1(x))))
-        x = res_1 + self.drop(self.relu(self.b1_bn2(self.b1_l2(x))))
-
+        x = self.drop(self.relu(self.b1_bn2(self.b1_l2(x))))
+        x = x + res_1
+        
         # Second block
         res_2 = x
         x = self.drop(self.relu(self.b2_bn1(self.b2_l1(x))))
-        x = res_2 + self.drop(self.relu(self.b2_bn2(self.b2_l2(x))))
-
+        x = self.drop(self.relu(self.b2_bn2(self.b2_l2(x))))
+        x = x + res_2
+        
         x = self.shrink(x)
         return x
 
